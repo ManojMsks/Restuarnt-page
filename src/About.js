@@ -1,10 +1,15 @@
 // Helper to create a founder card
-function createFounder(name, role) {
+import dog from "./dog.jpg";
+import cat from "./cat.jpg";
+import hamster from "./hamster.jpg";
+
+
+function createFounder(name, role,image) {
     const card = document.createElement('div');
     card.classList.add('founder-card');
 
     const img = document.createElement('img');
-    img.src = "https://via.placeholder.com/100"; // Placeholder for now
+    img.src = image; // Placeholder for now
     img.alt = name;
     img.style.borderRadius = "50%"; // Quick inline style to make them circular
 
@@ -36,9 +41,9 @@ export default function loadAbout() {
     const foundersContainer = document.createElement('div');
     foundersContainer.classList.add('founders-container'); // Use this class for Flexbox in CSS
 
-    const founder1 = createFounder("Chef Mario", "Head Chef");
-    const founder2 = createFounder("Luigi", "Sous Chef");
-    const founder3 = createFounder("Peach", "Manager");
+    const founder1 = createFounder("Chef Mario", "Head Chef",dog);
+    const founder2 = createFounder("Luigi", "Sous Chef",cat);
+    const founder3 = createFounder("Peach", "Manager",hamster);
 
     foundersContainer.appendChild(founder1);
     foundersContainer.appendChild(founder2);

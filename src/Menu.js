@@ -1,5 +1,10 @@
+import BrisketImg from './brisket.jpg';
+import RibsImg from './ribs.jpg';
+import ChickenImg from './chicken.jpg';
+import WingsImg from './wings.jpg';
+
 // This helper function creates a single food card
-function createMenuItem(name, description) {
+function createMenuItem(name, description,image) {
     const menuItem = document.createElement('div');
     menuItem.classList.add('menu-item'); 
 
@@ -10,6 +15,7 @@ function createMenuItem(name, description) {
     foodDesc.textContent = description;
 
     const foodImage = document.createElement('img'); 
+    foodImage.src=image;
     foodImage.alt = name;
 
     menuItem.appendChild(foodImage);
@@ -22,33 +28,11 @@ function createMenuItem(name, description) {
 export default function loadMenu() {
     const content = document.getElementById('content');
     
-    // IMPORTANT: Wipe out previous content (like the Home page)
     content.textContent = '';
+    content.appendChild(createMenuItem("Smoked Brisket", "Slow-smoked for 12 hours.", BrisketImg));
+    content.appendChild(createMenuItem("BBQ Ribs", "Fall-off-the-bone pork ribs.", RibsImg));
+    content.appendChild(createMenuItem("Grilled Chicken", "Lemon and herb grilled.", ChickenImg));
+    content.appendChild(createMenuItem("Buffalo Wings", "Spicy and crispy.", WingsImg));
 
-    // Create the items
-    const item1 = createMenuItem(
-        "Smoked Brisket", 
-        "Slow-smoked for 12 hours, tender and juicy."
-    );
-    
-    const item2 = createMenuItem(
-        "BBQ Ribs", 
-        "Fall-off-the-bone pork ribs with our secret sauce."
-    );
-
-    const item3 = createMenuItem(
-        "Grilled Chicken", 
-        "Marinated in lemon and herbs, grilled to perfection."
-    );
-
-    const item4 = createMenuItem(
-        "Buffalo Wings", 
-        "Spicy and crispy wings served with ranch dip."
-    );
-
-    // Append them all to the content div
-    content.appendChild(item1);
-    content.appendChild(item2);
-    content.appendChild(item3);
-    content.appendChild(item4);
+  
 }
